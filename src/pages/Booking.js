@@ -8,31 +8,34 @@ function Booking() {
   const [info, setInfo] = useState({
     FirstName: '',
     LastName: '',
-    accomCat: '',
+    accomCat: '...',
     accomType: '',
     Email: '',
     Phone: ''
   });
 
   const accomList = {
-    select: "...",
-    option: {
       "...": [],
       Room: ["Economy", "Superior", "Deluxe", "Premium"],
       Villa: ["Mangroove", "Pine", "Coconut", "Palm"]
-    }
   }
 
 
-  const accomCat = Object.keys(accomList.option).map(option => <option key={option} value={option}>{option}</option>)
-  const rooms = accomList.option.Room.map(room => <option key={room} value={room}>{room}</option>);
-  const villas = accomList.option.Villa.map(villa => <option key={villa} value={villa}>{villa}</option>);
+  const accomCat = Object.keys(accomList).map(option => <option key={option} value={option}>{option}</option>)
+  const rooms = accomList.Room.map(room => <option key={room} value={room}>{room}</option>);
+  const villas = accomList.Villa.map(villa => <option key={villa} value={villa}>{villa}</option>);
+  const types = {
+    '...': [],
+    Room: rooms,
+    Villa: villas
+  }
 
   const Entering = (e) => {
       
       const name = e.target.name;
       const value = e.target.value;
       setInfo(values => ({...values, [name]: value}))
+      accomList.select = info.accomCat;
   }
 
   function validate(info)
@@ -73,7 +76,6 @@ function Booking() {
           <div className='field' >
               <label htmlFor='acommType'>Category: </label>
               <select value={info.accomCat} name="accomCat" id="accomCat" onChange={(e) => {Entering(e)}}>
-                  <option value="">...</option>
                   {/* <option value="Room">Room</option>
                   <option value="Villa">Villa</option> */}
                   {accomCat}
@@ -82,7 +84,9 @@ function Booking() {
 
           <div className='field'>
             <label htmlFor='accomType'>Type: </label>            
-            <select value={info.accomType} name='accomType' id='accomType' onChange={Entering}></select>
+            <select value={info.accomType} name='accomType' id='accomType' onChange={Entering}>
+                {types[info.accomCat]}
+            </select>
           </div>
           
           <div className='nameField'>
