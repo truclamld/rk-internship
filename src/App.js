@@ -1,24 +1,67 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Rooms from './pages/Rooms';
+import Villas from './pages/Villas';
+import Services from './pages/Services';
+import Navbar from './Navbar';
+import Home from './pages/Home';
+import Booking from './pages/Booking';
+import Header from './Header';
+import { BrowserRouter, Route, Routes, useLocation} from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+
+function PrintHeader()
+{
+    const location = useLocation();
+    console.log(location);
+    switch (location.pathname)
+    {
+        case "/":
+            return <Header title="A luxury resort sits by a tropical beach"/>;
+        case "/rooms":
+            return <Header title="Enjoy a private and relaxing atmosphere"/>;
+        case "/villas":
+            return <Header title="Retreat together in our spectacular villas"/>;
+        case "/services":
+            return <Header title="Experience top-tier services. Because you deserve it."/>;
+        case "/booking":
+            return <Header title="Your pleasant vacation awaits"/>;
+    }
+    return (
+        <Header title="Hello"/>
+    )
+}
+
+function TransRoute() {
+    const location = useLocation();
+    
+    return (
+        <TransitionGroup>
+        <CSSTransition key={location.pathname} classNames="trans" timeout={1000}>
+            <Routes>
+                {/* <Route path="/" element={<Navbar />}> */}
+                    <Route path="/" element={<Home />} />
+                    <Route path='rooms' element={<Rooms />} />
+                    <Route path='villas' element={<Villas />} />
+                    <Route path='services' element={<Services />} />
+                    <Route path='booking' element={<Booking />} />
+                {/* </Route> */}
+            </Routes>
+        </CSSTransition>
+      </TransitionGroup>
+    )
+}
 
 function App() {
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <BrowserRouter>
+      <Navbar />
+      <PrintHeader />
+      <TransRoute />   
+  </BrowserRouter>
+
   );
 }
 

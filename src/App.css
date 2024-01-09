@@ -2,37 +2,137 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*Styling the header */
+
+.header {
+  background-color: black;
+  padding: 0;
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.headerImg {
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+  opacity: 0.7;  
 }
 
-.App-header {
+.title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  color: white;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  
+}
+
+.main {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Page Transition*/
+
+.trans-enter-active, .trans-exit-active {
+  transition: opacity 1000ms ease-in;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.trans-enter {
+  opacity: 0;
+}
+
+.trans-enter-done, .trans-enter-active {
+  opacity: 1;
+}
+
+.trans-exit {
+  opacity: 1;
+}
+
+.trans-exit-done, .trans-exit-active {
+  opacity: 0;
+}
+
+
+h1
+{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+/*Navigation Bar*/
+
+nav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.navbar{
+  
+  text-align: center;
+  background-color: cadetblue;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 0%;
+  margin: 0;
+}
+
+.navitem {
+  list-style: none;
+  height: 100%;
+}
+
+.navitem a {
+  font-family: Verdana, Geneva, Tahoma, sans-serif; 
+  font-size: 30px;
+  color: white;
+  display: block;
+  padding: 50px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.navitem a:hover {
+  background-color:darkblue;
+}
+
+form {
+  border: 5px;
+  border-style: solid;
+  padding: 2em;
+  width: 35%;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.nameField {
+  width: 100%;
+  display: inline-flex;
+  flex-direction: row;
+  float: inline-start;
+}
+
+select, input {
+  font-size: 15px;
+  width: 100%;
+  height: 3em;
+}
+
+label {
+  text-align: left;
+  margin-bottom: 5px;
 }
