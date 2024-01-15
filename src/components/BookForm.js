@@ -1,7 +1,5 @@
-import "./App.css";
+import "./BookForm.css";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
-import Booking from "./pages/Booking";
 
 function BookForm() 
 {

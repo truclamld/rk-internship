@@ -1,5 +1,5 @@
-import "./App.css"
-import headerImg from './images/header.jpg'
+import "./Header.css"
+import headerImg from '../images/header.jpg'
 
 function Header({title})
 {
