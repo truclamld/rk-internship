@@ -7,6 +7,7 @@ import Navbar from './Navbar';
 import Home from './pages/Home';
 import Booking from './pages/Booking';
 import Header from './Header';
+import BookForm from './BookForm';
 import { BrowserRouter, Route, Routes, useLocation} from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
@@ -26,13 +27,16 @@ function PrintHeader()
             return <Header title="Experience top-tier services. Because you deserve it."/>;
         case "/booking":
             return <Header title="Your pleasant vacation awaits"/>;
+        default:
+            return (
+                <Header title="Hello"/>
+            )
     }
-    return (
-        <Header title="Hello"/>
-    )
+    
 }
 
-function TransRoute() {
+function TransRoute() 
+{
     const location = useLocation();
     
     return (
@@ -52,13 +56,20 @@ function TransRoute() {
     )
 }
 
+function PrintNavBar() 
+{
+    const location = useLocation();
+    return <Navbar location={location.pathname}></Navbar>;
+}
+
 function App() {
   
 
   return (
   <BrowserRouter>
-      <Navbar />
+      <PrintNavBar />
       <PrintHeader />
+      <BookForm />
       <TransRoute />   
   </BrowserRouter>
 

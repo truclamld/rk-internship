@@ -8,6 +8,7 @@
   background-color: black;
   padding: 0;
   margin: 0;
+  z-index: 0;
 }
 
 .headerImg {
@@ -19,7 +20,7 @@
 
 .title {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 50px;
@@ -29,7 +30,7 @@
 }
 
 .main {
-  background-color: #282c34;
+  background-color: #40bbc4;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -70,13 +71,12 @@ h1
 /*Navigation Bar*/
 
 nav {
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
+  z-index: 1;
 }
 
-.navbar{
-  
+.navbar {
   text-align: center;
   background-color: cadetblue;
   display: flex;
@@ -90,6 +90,15 @@ nav {
 .navitem {
   list-style: none;
   height: 100%;
+}
+
+.navlogo {
+  list-style: none;
+  width: 30%;
+}
+
+.logo {
+  width: 100px;
 }
 
 .navitem a {
@@ -106,7 +115,50 @@ nav {
   background-color:darkblue;
 }
 
-form {
+
+/* Quick booking panel */
+
+.book {
+  width: 80%;  
+  padding: 10px;
+  position: absolute;
+  top: 68%;
+  left: 9%;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.book form {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.book div {
+  margin: 2em;
+}
+
+.book input, .book select {
+  width: 100%;
+  font-size: 18px;
+}
+
+.book .button {
+  width: 10%;
+  margin-top: 55px;
+  border: none;
+  background-color: cadetblue;
+  color: white;
+}
+
+.book label
+{
+  margin-bottom: 10px;
+}
+
+/* Booking form */
+
+.fullbook {
   border: 5px;
   border-style: solid;
   padding: 2em;
@@ -126,7 +178,7 @@ form {
   float: inline-start;
 }
 
-select, input {
+select,  input {
   font-size: 15px;
   width: 100%;
   height: 3em;

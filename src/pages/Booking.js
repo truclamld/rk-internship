@@ -72,7 +72,7 @@ function Booking() {
         
         <h1>Hotel Reservation System</h1>
         
-        <form onSubmit={Reserve}>
+        <form className='fullBook' onSubmit={Reserve}>
           <div className='field' >
               <label htmlFor='acommType'>Category: </label>
               <select value={info.accomCat} name="accomCat" id="accomCat" onChange={(e) => {Entering(e)}}>
