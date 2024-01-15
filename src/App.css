@@ -4,7 +4,7 @@
 
 /*Styling the header */
 
-.header {
+/* .header {
   background-color: black;
   padding: 0;
   margin: 0;
@@ -38,11 +38,11 @@
   
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
 /* Page Transition*/
 
-.trans-enter-active, .trans-exit-active {
+/* .trans-enter-active, .trans-exit-active {
   transition: opacity 1000ms ease-in;
 }
 
@@ -66,11 +66,11 @@
 h1
 {
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
-}
+} */
 
 /*Navigation Bar*/
 
-nav {
+/* nav {
   position: sticky;
   top: 0;
   z-index: 1;
@@ -113,12 +113,12 @@ nav {
 
 .navitem a:hover {
   background-color:darkblue;
-}
+} */
 
 
 /* Quick booking panel */
 
-.book {
+/* .book {
   width: 80%;  
   padding: 10px;
   position: absolute;
@@ -154,11 +154,11 @@ nav {
 .book label
 {
   margin-bottom: 10px;
-}
+} */
 
 /* Booking form */
 
-.fullbook {
+/* .fullbook {
   border: 5px;
   border-style: solid;
   padding: 2em;
@@ -187,4 +187,4 @@ select, input {
 label {
   text-align: left;
   margin-bottom: 5px;
-}
+} */
