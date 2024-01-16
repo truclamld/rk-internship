@@ -1,5 +1,6 @@
 import "./BookForm.css";
 import { useState } from "react";
+import { DatePicker, Button, Select, InputNumber } from "antd";
 
 function BookForm() 
 {
@@ -13,57 +14,63 @@ function BookForm()
       });
 
     const accomList = {
-        "...": [],
         Room: ["Economy", "Superior", "Deluxe", "Premium"],
         Villa: ["Mangroove", "Pine", "Coconut", "Palm"]
     }
   
   
-    const accomCat = Object.keys(accomList).map(option => <option key={option} value={option}>{option}</option>)
-    const rooms = accomList.Room.map(room => <option key={room} value={room}>{room}</option>);
-    const villas = accomList.Villa.map(villa => <option key={villa} value={villa}>{villa}</option>);
-    const types = {
-      '...': [],
-      Room: rooms,
-      Villa: villas
+    const accomCat = Object.keys(accomList) //.map(option => { return {"value": option, "label": option}})
+    
+
+    const [accomType, setAccomType] = useState(accomList[accomCat[0]]);
+    const [currType, setCurrType] = useState(accomList[accomCat[0]][0])
+
+
+    const HandleAccomCat = (cat) => {
+        setInfo(values => ({...values, "accomCat": cat}));
+        setAccomType(accomList[cat]);
+        setCurrType(accomList[cat][0]);
     }
 
-    const Entering = (e) => {
-      
-        const name = e.target.name;
-        const value = e.target.value;
-        setInfo(values => ({...values, [name]: value}))
-        accomList.select = info.accomCat;
+    const HandleAccomType = (type) => {
+        setCurrType(type);
+    }
+
+    const Reserve = () => {
+        console.log(info);
     }
 
     return (
-        <div className="App book">
-            <form>
-                <div>
+        <div className="booking-container">
+            <form className="booking-form" onSubmit={Reserve}>
+                <div className="field">
                     <label htmlFor="checkin">Check-in Date: </label>
-                    <input type="date" name="checkin" id="checkin" onChange={Entering}></input>
+                    {/* <input type="date" name="checkin" id="checkin" onChange={Entering}></input> */}
+                    <DatePicker onChange={(date) => { setInfo(values => ({...values, "chkIn": date})) }}></DatePicker>
                 </div>
-                <div>
-                    <label htmlFor="checkout">Check-out Date:</label>
-                    <input type="date" name="checkout" id="checkout" onChange={Entering}></input>
+                <div className="field">
+                    <label htmlFor="checkout">Check-out Date: </label>
+                    {/* <input type="date" name="checkout" id="checkout" onChange={Entering}></input> */}
+                    <DatePicker onChange={(date) => { setInfo(values => ({...values, "chkOut": date})) }}></DatePicker>
                 </div>
-                <div>
+                <div className="field">
                     <label htmlFor="accomCat">Category: </label>
-                    <select value={info.accomCat} name="accomCat" id="accomCat" onChange={Entering}>
-                        {accomCat}
-                    </select>
+                    <Select defaultValue="Room" style={{ width: 120 }} onChange={ HandleAccomCat } options={accomCat.map(option => { return {"value": option, "label": option}})}></Select>
                 </div>
-                <div>
+                <div className="field">
                     <label htmlFor='accomType'>Type: </label>            
-                    <select value={info.accomType} name='accomType' id='accomType' onChange={Entering}>
+                    {/* <select value={info.accomType} name='accomType' id='accomType' onChange={Entering}>
                         {types[info.accomCat]}
-                    </select>
+                    </select> */}
+                    <Select value={currType} style={{ width: 120 }} onChange={ HandleAccomType } options={accomType.map(option => { return {"value": option, "label": option}})}></Select>
                 </div>
-                <div>
+                <div className="field">
                     <label htmlFor="guestNo">Number of Guests: </label>
-                    <input type="number" min={1} max={20} name="guestNo" id="guestNo" onChange={Entering}></input>
+                    <InputNumber min={1} max={20} onChange={(guestNo) => { setInfo(values => ({...values, "guestNo": guestNo})) }} />
                 </div>
-                <input type="submit" className="button" value="Book"></input>
+                <div className="btn-booking">
+                        <Button type="primary">Book now</Button>
+                </div>
             </form>
         </div>
     )

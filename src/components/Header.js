@@ -1,6 +1,7 @@
 import "./Header.scss"
-import headerImg from '../images/header.png'
+import headerImg from '../images/header.jpg'
 import { Button } from "antd";
+import BookForm from "./BookForm";
 
 function Header() {
     return (
@@ -24,7 +25,7 @@ function Header() {
             <div className="header-image">
                 <img src={headerImg} alt="header"></img>
             </div>
-
+            <BookForm />
         </div>
     )
 }
