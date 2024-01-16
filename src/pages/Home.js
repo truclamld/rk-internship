@@ -1,12 +1,12 @@
 import '../App.css';
-import BookForm from '../components/BookForm';
 import Pool from "../images/pool.png";
 import Spa from "../images/spa.png";
+import Header from '../components/Header';
 
 function Home() {
     return (
-        <div className="App main">
-            <BookForm />
+        <div className="main">
+            <Header />
             <div className='Introduction'></div>
             <div className='Services'>
                 <h1>Meet our top-tier services</h1>

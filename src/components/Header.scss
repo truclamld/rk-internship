@@ -2,12 +2,13 @@
     padding: 0px 120px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    background: #FAFAFA;
 
 
     .header-container {
 
-        width: 30%;
+        width: 40%;
+        
 
         h2 {
             color: #7C6A46;
@@ -38,19 +39,20 @@
     }
 
     .header-image {
-        width: 626px;
-        height: 700px;
+        width: 826px;
+        height: 900px;
         flex-shrink: 0;
     }
 
     .header-image img {
-        width: 100%;
+        width: 80%;
+        float: right;
     }
 
     .button-group {
 
         display: flex;
-        justify-content: space-between;
+        gap: 38px;
 
         .btn-booking {
             button {

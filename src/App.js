@@ -3,13 +3,9 @@ import './App.css';
 import Rooms from './pages/Rooms';
 import Villas from './pages/Villas';
 import Services from './pages/Services';
-import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Booking from './pages/Booking';
-import Header from './components/Header';
-import BookForm from './components/BookForm';
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
 import { ConfigProvider } from 'antd';
 
@@ -17,7 +13,6 @@ const theme = {
     token: {
         colorPrimary: '#7C6A46',
         borderRadius: 5,
-
     },
 }
 

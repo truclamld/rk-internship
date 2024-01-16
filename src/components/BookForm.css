@@ -1,0 +1,40 @@
+.booking-container {
+
+    background-color: white;
+    width: 85%;
+    align-items: center;
+    position: absolute;
+    bottom: 40px;
+    left: 120px;
+    padding: 40px 36px;
+    border: 2px solid #7c6a46;
+    border-radius: 100px;
+
+    .booking-form {
+        display: flex;
+        gap: 90px;
+        align-items: center;
+        justify-content: center;
+
+        .field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .btn-booking {
+            Button {
+                width: 180px;
+                height: 65px;
+                flex-shrink: 0;
+                border-radius: 5px;
+
+                color: #FFF;
+                font-family: Poppins;
+                font-size: 15px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+            }
+        }
+    }
+}
