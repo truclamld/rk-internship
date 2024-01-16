@@ -1,0 +1,107 @@
+.header {
+    padding: 0px 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+    .header-container {
+
+        width: 30%;
+
+        h2 {
+            color: #7C6A46;
+            font-family: Dancing Script;
+            font-size: 50px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+        }
+
+        h1 {
+            color: #1C1C1C;
+            font-family: Raleway;
+            font-size: 55px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+
+        h4 {
+            color: #1C1C1C;
+            font-family: Raleway;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+        }
+    }
+
+    .header-image {
+        width: 626px;
+        height: 700px;
+        flex-shrink: 0;
+    }
+
+    .header-image img {
+        width: 100%;
+    }
+
+    .button-group {
+
+        display: flex;
+        justify-content: space-between;
+
+        .btn-booking {
+            button {
+                height: 55px;
+                width: 165px;
+                box-shadow: none;
+                border-radius: 50px;
+                color: #FFF;
+
+                font-family: Inter;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+            }
+        }
+
+        .btn-explore {
+            display: flex;
+            gap: 15px;
+
+            .circle {
+                width: 55px;
+                height: 55px;
+                flex-shrink: 0;
+                background-color: #00A699;
+                border-radius: 50px;
+                align-items: center;
+                justify-content: center;
+
+                .btn-play {
+                    width: 0;
+                    height: 0;
+                    border-left: 10px solid transparent;
+                    border-right: 10px solid transparent;
+                    border-bottom: 18px solid white;
+                    margin-left: 36px;
+                    padding-top: 35px;
+                    rotate: 90deg;
+                }
+            }
+
+            p {
+                color: #1C1C1C;
+                font-family: Inter;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+            }
+
+        }
+    }
+}
