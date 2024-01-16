@@ -5,6 +5,7 @@
     background: #FAFAFA;
 
 
+
     .header-container {
 
         width: 40%;
@@ -17,6 +18,8 @@
             font-style: normal;
             font-weight: 600;
             line-height: normal;
+            margin: 0;
+            margin-bottom: 26px;
         }
 
         h1 {
@@ -26,6 +29,7 @@
             font-style: normal;
             font-weight: 700;
             line-height: normal;
+            margin: 0;
         }
 
         h4 {
@@ -53,6 +57,9 @@
 
         display: flex;
         gap: 38px;
+
+
+
 
         .btn-booking {
             button {
