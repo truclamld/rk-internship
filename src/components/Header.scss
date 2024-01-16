@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    background: #FAFAFA;
 
     .header-container {
 
@@ -16,6 +16,8 @@
             font-style: normal;
             font-weight: 600;
             line-height: normal;
+            margin: 0;
+            margin-bottom: 26px;
         }
 
         h1 {
@@ -25,6 +27,7 @@
             font-style: normal;
             font-weight: 700;
             line-height: normal;
+            margin: 0;
         }
 
         h4 {
@@ -50,7 +53,8 @@
     .button-group {
 
         display: flex;
-        justify-content: space-between;
+        gap: 38px;
+
 
         .btn-booking {
             button {
