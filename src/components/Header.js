@@ -1,12 +1,30 @@
-import "./Header.css"
-import headerImg from '../images/header.jpg'
+import "./Header.scss"
+import headerImg from '../images/header.png'
+import { Button } from "antd";
 
-function Header({title})
-{
+function Header() {
     return (
-        <div className="App header">
-            <img className="headerImg" src={headerImg} alt="Resort"></img>
-            <h1 className="title">{title}</h1>
+        <div className="header">
+            <div className="header-container">
+                <h2>Ressy Resort</h2>
+                <h1>A top-tier beachside escape laying on a tropical island</h1>
+                <h4>Experience one-in-a-lifetime moments.</h4>
+                <div className="button-group">
+                    <div className="btn-booking">
+                        <Button type="primary">Book now</Button>
+                    </div>
+                    <div className="btn-explore">
+                        <div className="circle">
+                            <div className="btn-play"></div>
+                        </div>
+                        <p>Explore more</p>
+                    </div>
+                </div>
+            </div>
+            <div className="header-image">
+                <img src={headerImg} alt="header"></img>
+            </div>
+
         </div>
     )
 }
