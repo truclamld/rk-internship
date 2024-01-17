@@ -1,0 +1,42 @@
+.item {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    height: 250px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background: #FAFAFA;
+    justify-content: center;
+    align-items: center;
+    transition: 500ms;
+
+    &:hover {
+        background: #7C6A46;
+
+        svg {
+            fill: #FAFAFA;
+        }
+
+        h4 {
+            color: #FAFAFA;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+        }
+
+    }
+
+    svg {
+        width: 55px;
+        height: 40px;
+    }
+
+    h4 {
+        color: #7C6A46;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+}
