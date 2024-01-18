@@ -1,4 +1,4 @@
-import "./BookForm.css";
+import "./BookForm.scss";
 import { useState } from "react";
 import { DatePicker, Button, Select, InputNumber } from "antd";
 
