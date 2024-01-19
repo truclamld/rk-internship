@@ -1,0 +1,41 @@
+.srvLayout {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 100px;
+    padding: 172px 95px;
+
+    .srvImage {
+        width: 850px;
+        height: 678px;
+        background-size: cover;
+
+    }
+
+    .srvText {
+
+        margin-left: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+        padding: 20px;
+
+        h2 {
+            font-size: 40px;
+            border-left-width: 5px;
+            border-left-color: #7C6A46;
+            border-left-style: solid;
+            padding-left: 20px;
+        }
+
+        p {
+            width: 617px;
+            height: 81px;
+            font-size: 18px;
+            line-height: 1.5;
+            font-weight: 400;
+            color: #202020;
+        }
+    }
+}
