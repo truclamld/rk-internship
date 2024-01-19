@@ -15,7 +15,7 @@ function BookForm()
 
     const accomList = {
         Room: ["Economy", "Superior", "Deluxe", "Premium"],
-        Villa: ["Mangroove", "Pine", "Coconut", "Palm"]
+        Villa: ["Pine", "Palm", "Coconut", "Coral"]
     }
   
   
