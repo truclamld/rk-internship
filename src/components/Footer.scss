@@ -1,0 +1,47 @@
+.footer {
+    background: #7C6A46;
+    height: 420px;
+    padding: 81px 119px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    gap: 97px;
+
+    .footerLogo {
+        p {
+            width: 400px;
+        }
+    }
+
+    img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .newsletter {
+        form {
+            display: flex;
+
+            Input {
+                width: 360px;
+                height: 50px;
+                flex-shrink: 0;
+                border-radius: 5px 0 0px 5px;
+                background: #FFF;
+            }
+
+            Button {
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                height: 50px;
+                border-width: 5px;
+                border-color: #FFF;
+                border-radius: 0;
+            }
+
+
+        }
+    }
+
+}
