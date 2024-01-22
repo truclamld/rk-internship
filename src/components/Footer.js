@@ -15,7 +15,7 @@ const Footer = () => {
         <div className='footer'>
             <div className='footerLogo'>
                 <h1>Ressy Resort</h1>
-                <p>The service at the Ressy Resort was exceptional. There was absolutely no issue that was not addressed timely and with satisfactory results. We were particulary impressed with how the hotel staff anticipated our needs (periodically coming by the Board Room to check with us)</p>
+                <p>Situated at the most calming and breathtaking area of the Paradise Island, you will feel the peacefulness and the relaxing atmosphere of the local sea, as well as the hospitality of the locals from our services.</p>
             </div>
             <FooterMenu title="Company" menu={companyMenu} />
             <FooterMenu title="Reservation" menu={reserveMenu} />
