@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.scss'
 import FooterMenu from './FooterMenu';
-import { Input, Button } from 'antd';
+import { Input, Button, Space } from 'antd';
 
 
 const Footer = () => {
@@ -23,8 +23,10 @@ const Footer = () => {
             <div className='newsletter'>
                 <FooterMenu title="Newsletter" menu={newsMenu}></FooterMenu>
                 <form>
-                    <Input placeholder='Email' />
-                    <Button type="primary">Subscribe</Button>
+                    <Space.Compact>
+                        <Input placeholder='Email' />
+                        <Button type="primary">Subscribe</Button>
+                    </Space.Compact>
                 </form>
             </div>
         </div>
