@@ -1,3 +1,4 @@
+import "@fontsource/poppins";
 import "./Navbar.scss";
 import { Outlet, Link } from "react-router-dom";
 import Logo from "../images/logo.jpg";

@@ -4,7 +4,7 @@ import './Footer.scss'
 
 const FooterMenu = ({title, menu}) => {
 
-    const formatMenu = menu.map(item => {return <p>{item}</p>})
+    const formatMenu = menu.map(item => {return <p key={item}>{item}</p>})
 
     return (
         <div className='footmenu'>

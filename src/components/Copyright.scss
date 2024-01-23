@@ -1,0 +1,18 @@
+.copyright {
+    background: #7C6A46;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .copyBorder {
+        height: 0.5px;
+        width: 100%;
+        background-color: #D9D9D9;
+    }
+    
+    p {
+        padding: 50px 0;
+        color: white;
+    }
+}

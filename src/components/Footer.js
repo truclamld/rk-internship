@@ -13,6 +13,7 @@ const Footer = () => {
 
     return (
         <div className='footer'>
+
             <div className='footerLogo'>
                 <h1>Ressy Resort</h1>
                 <p>Situated at the most calming and breathtaking area of the Paradise Island, you will feel the peacefulness and the relaxing atmosphere of the local sea, as well as the hospitality of the locals from our services.</p>
@@ -29,6 +30,8 @@ const Footer = () => {
                     </Space.Compact>
                 </form>
             </div>
+
+
         </div>
     )
 };
