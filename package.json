@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fontsource/dancing-script": "^5.0.16",
+    "@fontsource/mulish": "^5.0.16",
     "@fontsource/poppins": "^5.0.8",
     "@fontsource/raleway": "^5.0.16",
     "@testing-library/jest-dom": "^5.17.0",

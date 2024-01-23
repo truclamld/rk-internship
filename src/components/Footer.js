@@ -2,6 +2,8 @@ import React from 'react';
 import './Footer.scss'
 import FooterMenu from './FooterMenu';
 import { Input, Button, Space } from 'antd';
+import "@fontsource/dancing-script";
+import "@fontsource/raleway";
 
 
 const Footer = () => {
@@ -30,8 +32,6 @@ const Footer = () => {
                     </Space.Compact>
                 </form>
             </div>
-
-
         </div>
     )
 };

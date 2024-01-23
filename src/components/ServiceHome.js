@@ -12,6 +12,7 @@ import KidIcon from '../components/svg/KidIcon';
 import SpaIcon from '../components/svg/SpaIcon';
 import ShuttleIcon from '../components/svg/ShuttleIcon';
 import ServiceItem from './ServiceItem';
+import "@fontsource/poppins";
 
 
 const ServiceHome = () => {

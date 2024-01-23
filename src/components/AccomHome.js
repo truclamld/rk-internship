@@ -1,10 +1,11 @@
 import "./AccomHome.scss";
 import AccomHomeItem from "./AccomHomeItem";
+import "@fontsource/raleway";
 
 
 export default function AccomHome({title, subtitle, images, itemSet}) {
 
-    const items = itemSet.map((item) => {return (<AccomHomeItem image={item.Img} title={item.Name} />)})
+    const items = itemSet.map((item) => {return (<AccomHomeItem key={item.Name} image={item.Img} title={item.Name} />)})
 
     return (
         <div className="accom" style={{backgroundImage: 'url(' +  images + ')'}}>

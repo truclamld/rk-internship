@@ -1,4 +1,5 @@
 import "./HeaderAccomService.scss";
+import "@fontsource/mulish";
 
 export default function HeaderAccomService({ title, subtitle, image }) {
     return (
