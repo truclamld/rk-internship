@@ -1,0 +1,22 @@
+.review {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 120px 63px;
+
+    h1 {
+        color: #000;
+        font-size: 50px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    .reviewItem {
+        display: flex;
+        flex-direction: row;
+        gap: 39px;
+        margin-top: 65px;
+    }
+}
