@@ -39,7 +39,7 @@ function BookForm() {
 
     const Reserve = (value) => {
         console.log(value);
-        redirect("/booking?accomCat="+ value.accomCat + "&accomType="+ value.accomType + "&chkIn="+ value.chkIn + "&chkOut="+ value.chkOut + "&guestNo="+ value.guestNo + "}");
+        //redirect("/booking?accomCat="+ value.accomCat + "&accomType="+ value.accomType + "&chkIn="+ value.chkIn + "&chkOut="+ value.chkOut + "&guestNo="+ value.guestNo + "}");
     }
 
     return (
