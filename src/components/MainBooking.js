@@ -4,6 +4,7 @@ import "./MainBooking.scss";
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { useSearchParams } from "react-router-dom";
+import axios from "axios";
 
 export default function MainBooking() {
 
@@ -53,9 +54,16 @@ export default function MainBooking() {
         setCurrType(type);
     }
 
-    const Reserve = (value) => {
-        alert("Reservation successful. Thank you for choosing Ressy Resort!");
-        console.log(value);
+    function Reserve(value) {
+        axios.post("http://localhost:4200/booking", value).then((result) => {
+            if (result.status === 200) {
+                alert("Reservation successful. Thank you for choosing Ressy Resort!");
+                form.resetFields();
+            }
+        }).catch((error) => {
+            alert("An error occured. Your reservation has not been completed.")
+            console.error(error);
+        });
 
     }
 
@@ -129,16 +137,16 @@ export default function MainBooking() {
                 </Space.Compact>
                 {/*---------------------------Guest Number fields-----------------------------*/}
                 <div className="field">
-                        <label htmlFor="guestNo">Number of Guest(s): </label>
-                        <Form.Item name="guestNo" rules={[
-                            {
-                                required: true,
-                                message: "Please enter the number of staying guest(s)"
-                            }
-                        ]}>
-                            <InputNumber style={{ width: "100%" }} min={1} max={20} />
-                        </Form.Item>
-                    </div>
+                    <label htmlFor="guestNo">Number of Guest(s): </label>
+                    <Form.Item name="guestNo" rules={[
+                        {
+                            required: true,
+                            message: "Please enter the number of staying guest(s)"
+                        }
+                    ]}>
+                        <InputNumber style={{ width: "100%" }} min={1} max={20} />
+                    </Form.Item>
+                </div>
                 {/*---------------------------Name fields-----------------------------*/}
                 <Space.Compact>
                     <div className="field">
@@ -216,6 +224,10 @@ export default function MainBooking() {
                             {
                                 pattern: "[0-9]{9}",
                                 message: "Please enter a valid phone number"
+                            },
+                            {
+                                max: 9,
+                                message: "Phone numbers should not exceed 9 digits"
                             }
                         ]}>
                             <Input />
@@ -226,7 +238,7 @@ export default function MainBooking() {
                 </Space.Compact>
 
                 <div className="field">
-                    <label htmlFor="request">Special Request: </label>
+                    <label htmlFor="request">Special Request (optional): </label>
                     <Form.Item name="request" rules={[
                         {
                             max: 1000,
