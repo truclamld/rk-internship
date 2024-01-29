@@ -57,11 +57,11 @@ export default function MainBooking() {
     function Reserve(value) {
         axios.post("http://localhost:4200/booking", value).then((result) => {
             if (result.status === 200) {
-                alert("Reservation successful. Thank you for choosing Ressy Resort!");
+                alert("Reservation successful. An email containing your booking information has been sent to your email address. \nThank you for choosing Ressy Resort!");
                 form.resetFields();
             }
         }).catch((error) => {
-            alert("An error occured. Your reservation has not been completed.")
+            alert("An error occured. Your reservation has not been completed. Please try again later.")
             console.error(error);
         });
 
