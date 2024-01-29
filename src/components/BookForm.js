@@ -3,12 +3,12 @@ import { useState } from "react";
 import { DatePicker, Button, Select, InputNumber, Form } from "antd";
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function BookForm() {
 
     const [form] = Form.useForm();
-    
+    const redir = useNavigate();
 
     dayjs.extend(customParseFormat);
     const beforeToday = (current) => {
@@ -21,7 +21,7 @@ function BookForm() {
     }
 
 
-    const accomCat = Object.keys(accomList) //.map(option => { return {"value": option, "label": option}})
+    const accomCat = Object.keys(accomList)
 
 
     const [accomType, setAccomType] = useState(accomList[accomCat[0]]);
@@ -31,6 +31,7 @@ function BookForm() {
     const HandleAccomCat = (cat) => {
         setAccomType(accomList[cat]);
         setCurrType(accomList[cat][0]);
+        form.setFieldsValue({ accomType: accomList[cat][0] })
     }
 
     const HandleAccomType = (type) => {
@@ -39,7 +40,8 @@ function BookForm() {
 
     const Reserve = (value) => {
         console.log(value);
-        //redirect("/booking?accomCat="+ value.accomCat + "&accomType="+ value.accomType + "&chkIn="+ value.chkIn + "&chkOut="+ value.chkOut + "&guestNo="+ value.guestNo + "}");
+        const dest = "/booking?accomCat="+ value.accomCat + "&accomType="+ value.accomType + "&chkIn="+ value.chkIn + "&chkOut="+ value.chkOut + "&guestNo="+ value.guestNo;
+        redir(dest);
     }
 
     return (

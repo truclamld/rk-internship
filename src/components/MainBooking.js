@@ -20,8 +20,8 @@ export default function MainBooking() {
     const fromBookForm = {
         accomCat: preAccomCat ? preAccomCat : "",
         accomType: preAccomType ? preAccomType : "",
-        chkIn: chkInDate ? dayjs(new Date(chkInDate)) : "",
-        chkOut: chkOutDate ? dayjs(new Date(chkOutDate)) : "",
+        chkIn: chkInDate ? dayjs(new Date(Number.parseInt(chkInDate))) : "",
+        chkOut: chkOutDate ? dayjs(new Date(Number.parseInt(chkOutDate))) : "",
         guestNo: preguestNo ? preguestNo : ""
     }
 
@@ -56,6 +56,7 @@ export default function MainBooking() {
     const Reserve = (value) => {
         alert("Reservation successful. Thank you for choosing Ressy Resort!");
         console.log(value);
+
     }
 
     return (
@@ -71,7 +72,7 @@ export default function MainBooking() {
                                 required: true,
                                 message: "Please select accommodation category"
                             }
-                        ]} initialValue={accomCat[0]}>
+                        ]}>
                             <Select size="large" style={{ width: "90%" }} onChange={HandleAccomCat} options={accomCat.map(option => { return { "value": option, "label": option } })} />
                         </Form.Item>
                     </div>
@@ -83,7 +84,7 @@ export default function MainBooking() {
                                 required: true,
                                 message: "Please select your room/villa type"
                             }
-                        ]} initialValue={accomType[0]} shouldUpdate>
+                        ]} shouldUpdate>
                             <Select size="large" style={{ width: "100%" }} value={currType} onChange={HandleAccomType} options={accomType.map(option => { return { "value": option, "label": option } })} />
                         </Form.Item>
 
@@ -225,8 +226,13 @@ export default function MainBooking() {
                 </Space.Compact>
 
                 <div className="field">
-                    <label htmlFor="special">Special Request: </label>
-                    <Form.Item name="special">
+                    <label htmlFor="request">Special Request: </label>
+                    <Form.Item name="request" rules={[
+                        {
+                            max: 1000,
+                            message: "Message should not exceed 1000 characters"
+                        }
+                    ]}>
                         <TextArea rows={4} />
                     </Form.Item>
                 </div>
