@@ -1,5 +1,6 @@
 import React from 'react';
-import './Footer.scss'
+import './Footer.scss';
+import "@fontsource/raleway";
 
 
 const FooterMenu = ({title, menu}) => {

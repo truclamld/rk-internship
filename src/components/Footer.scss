@@ -9,8 +9,24 @@
     gap: 97px;
 
     .footerLogo {
+        h1 {
+            color: #FFF;
+            text-align: justify;
+            font-family: "Dancing Script";
+            font-size: 30px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+
         p {
             width: 400px;
+            color: #FFF;
+            text-align: justify;
+            font-family: Raleway;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
         }
     }
 
@@ -19,16 +35,27 @@
         height: 150px;
     }
 
+    p {
+        color: #FFF;
+        font-family: Raleway;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
     .newsletter {
         form {
-            display: flex;
+            position: relative;
+            display: inline-block;
 
             Input {
                 width: 360px;
                 height: 50px;
                 flex-shrink: 0;
-                border-radius: 5px 0 0px 5px;
+                border-radius: 5px 5px 5px 5px;
                 background: #FFF;
+                border-width: 5px;
+                border-color: white;
             }
 
             Button {
@@ -36,6 +63,9 @@
                 font-weight: 600;
                 line-height: normal;
                 height: 50px;
+                border-width: 5px;
+                border-color: white;
+                box-shadow: none;
             }
 
 

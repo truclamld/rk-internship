@@ -2,6 +2,9 @@ import "./Header.scss"
 import headerImg from '../images/header.jpg'
 import { Button } from "antd";
 import BookForm from "./BookForm";
+import "@fontsource/raleway";
+import "@fontsource/dancing-script";
+import "@fontsource/poppins";
 
 function Header() {
     return (

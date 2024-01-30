@@ -1,4 +1,5 @@
 import "./Accommodation.scss";
+import "@fontsource/raleway";
 
 export default function Accommodation({title, desc, image}) {
     return (
