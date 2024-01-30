@@ -11,6 +11,7 @@ import Pine from "../images/Pine.jpg";
 import Palm from "../images/Palm.jpg";
 import Coconut from "../images/Coconut.jpg";
 import Coral from "../images/Coral.jpg";
+import Review from '../components/Review';
 
 function Home() {
 
@@ -33,6 +34,7 @@ function Home() {
             <ServiceHome />
             <AccomHome title="Rooms" subtitle="Enjoy your own space with our private rooms, freshened by the nature" images={RoomHome} itemSet={RoomSet} />
             <AccomHome title="Villas" subtitle="A dedicated accommodation for your best ever experience" images={VillaHome} itemSet={VillaSet} />
+            <Review />
         </div>
 
     );
