@@ -1,13 +1,30 @@
-import { Form, DatePicker, Button, Select, Input, Space, Checkbox } from "antd";
+import { Form, DatePicker, Button, Select, Input, Space, Checkbox, InputNumber } from "antd";
 import { useState } from 'react';
 import "./MainBooking.scss";
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
+import { useSearchParams } from "react-router-dom";
+import axios from "axios";
 
 export default function MainBooking() {
 
     const { TextArea } = Input;
     const [form] = Form.useForm();
+    const [searchParams] = useSearchParams();
+    const preAccomCat = searchParams.get('accomCat');
+    const preAccomType = searchParams.get('accomType');
+    const chkInDate = searchParams.get('chkIn');
+    const chkOutDate = searchParams.get('chkOut');
+    const preguestNo = searchParams.get("guestNo");
+    console.log(chkInDate);
+
+    const fromBookForm = {
+        accomCat: preAccomCat ? preAccomCat : "",
+        accomType: preAccomType ? preAccomType : "",
+        chkIn: chkInDate ? dayjs(new Date(Number.parseInt(chkInDate))) : "",
+        chkOut: chkOutDate ? dayjs(new Date(Number.parseInt(chkOutDate))) : "",
+        guestNo: preguestNo ? preguestNo : ""
+    }
 
     const accomList = {
         Room: ["Economy", "Superior", "Deluxe", "Premium"],
@@ -37,15 +54,23 @@ export default function MainBooking() {
         setCurrType(type);
     }
 
-    const Reserve = (value) => {
-        alert("Reservation successful. Thank you for choosing Ressy Resort!");
-        console.log(value);
+    function Reserve(value) {
+        axios.post("http://localhost:4200/booking", value).then((result) => {
+            if (result.status === 200) {
+                alert("Reservation successful. An email containing your booking information has been sent to your email address. \nThank you for choosing Ressy Resort!");
+                form.resetFields();
+            }
+        }).catch((error) => {
+            alert("An error occured. Your reservation has not been completed. Please try again later.")
+            console.error(error);
+        });
+
     }
 
     return (
         <div className="MainBooking">
 
-            <Form form={form} onFinish={Reserve}>
+            <Form form={form} onFinish={Reserve} initialValues={fromBookForm}>
                 {/*---------------------------Accommodation categories and types fields-----------------------------*/}
                 <Space.Compact>
                     <div className="field">
@@ -55,8 +80,8 @@ export default function MainBooking() {
                                 required: true,
                                 message: "Please select accommodation category"
                             }
-                        ]} initialValue={accomCat[0]}>
-                            <Select size="large" style={{width: "90%"}} onChange={HandleAccomCat} options={accomCat.map(option => { return { "value": option, "label": option } })} />
+                        ]}>
+                            <Select size="large" style={{ width: "90%" }} onChange={HandleAccomCat} options={accomCat.map(option => { return { "value": option, "label": option } })} />
                         </Form.Item>
                     </div>
 
@@ -67,8 +92,8 @@ export default function MainBooking() {
                                 required: true,
                                 message: "Please select your room/villa type"
                             }
-                        ]} initialValue={accomType[0]} shouldUpdate>
-                            <Select size="large" style={{width: "100%"}} value={currType} onChange={HandleAccomType} options={accomType.map(option => { return { "value": option, "label": option } })} />
+                        ]} shouldUpdate>
+                            <Select size="large" style={{ width: "100%" }} value={currType} onChange={HandleAccomType} options={accomType.map(option => { return { "value": option, "label": option } })} />
                         </Form.Item>
 
                     </div>
@@ -83,7 +108,7 @@ export default function MainBooking() {
                                 message: "Check-in date required"
                             }
                         ]}>
-                            <DatePicker style={{width: "90%"}} disabledDate={beforeToday}></DatePicker>
+                            <DatePicker style={{ width: "90%" }} disabledDate={beforeToday}></DatePicker>
                         </Form.Item>
                     </div>
                     <div className="field">
@@ -106,10 +131,22 @@ export default function MainBooking() {
                                 }
                             })
                         ]}>
-                            <DatePicker style={{width: "100%"}} disabledDate={beforeToday}></DatePicker>
+                            <DatePicker style={{ width: "100%" }} disabledDate={beforeToday}></DatePicker>
                         </Form.Item>
                     </div>
                 </Space.Compact>
+                {/*---------------------------Guest Number fields-----------------------------*/}
+                <div className="field">
+                    <label htmlFor="guestNo">Number of Guest(s): </label>
+                    <Form.Item name="guestNo" rules={[
+                        {
+                            required: true,
+                            message: "Please enter the number of staying guest(s)"
+                        }
+                    ]}>
+                        <InputNumber style={{ width: "100%" }} min={1} max={20} />
+                    </Form.Item>
+                </div>
                 {/*---------------------------Name fields-----------------------------*/}
                 <Space.Compact>
                     <div className="field">
@@ -124,7 +161,7 @@ export default function MainBooking() {
                                 message: "Enter letters only"
                             }
                         ]}>
-                            <Input style={{width: "90%"}}/>
+                            <Input style={{ width: "90%" }} />
                         </Form.Item>
                     </div>
                     <div className="field">
@@ -143,7 +180,7 @@ export default function MainBooking() {
                         </Form.Item>
                     </div>
                 </Space.Compact>
-
+                {/*---------------------------Email fields-----------------------------*/}
                 <div className='field'>
                     <label htmlFor='Email'>Email:</label>
                     <Form.Item name="email" rules={[
@@ -174,7 +211,7 @@ export default function MainBooking() {
                                 message: "Please enter country/region code"
                             }
                         ]}>
-                            <Input addonBefore="+" style={{width: "90%"}}/>
+                            <Input addonBefore="+" style={{ width: "90%" }} />
                         </Form.Item>
                     </div>
                     <div className='field'>
@@ -187,6 +224,10 @@ export default function MainBooking() {
                             {
                                 pattern: "[0-9]{9}",
                                 message: "Please enter a valid phone number"
+                            },
+                            {
+                                max: 9,
+                                message: "Phone numbers should not exceed 9 digits"
                             }
                         ]}>
                             <Input />
@@ -197,8 +238,13 @@ export default function MainBooking() {
                 </Space.Compact>
 
                 <div className="field">
-                    <label htmlFor="special">Special Request: </label>
-                    <Form.Item name="special">
+                    <label htmlFor="request">Special Request (optional): </label>
+                    <Form.Item name="request" rules={[
+                        {
+                            max: 1000,
+                            message: "Message should not exceed 1000 characters"
+                        }
+                    ]}>
                         <TextArea rows={4} />
                     </Form.Item>
                 </div>

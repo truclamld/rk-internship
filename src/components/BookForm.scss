@@ -4,21 +4,24 @@
     width: 85%;
     align-items: center;
     position: absolute;
-    bottom: 40px;
+    bottom: -10px;
     left: 120px;
-    padding: 40px 36px;
+    padding: 50px 36px;
     border: 2px solid #7c6a46;
     border-radius: 100px;
 
     .booking-form {
         display: flex;
-        gap: 90px;
+        gap: 60px;
         align-items: center;
         justify-content: center;
+        
 
         .field {
             display: flex;
             flex-direction: column;
+            height: 80px;
+            width: 200px;
 
             label {
                 color: #1C1C1C;
@@ -26,6 +29,11 @@
                 font-style: normal;
                 font-weight: 500;
                 line-height: normal;
+            }
+
+            input {
+                width: 100%;
+                font-size: 20px;
             }
         }
 

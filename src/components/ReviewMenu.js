@@ -6,7 +6,7 @@ export default function ReviewMenu({Date, Rating, Author, ReviewText}) {
     
     for (let i = 0; i < Rating; i++)
     {
-        rate.push(<StarIcon />);
+        rate.push(<StarIcon key={i} />);
     }
     return (
         <div className="reviewMenu">
