@@ -21,6 +21,7 @@ function Villas()
             <Accommodation title="Palm" desc={palmDesc} image={Palm}/>
             <Accommodation title="Coconut" desc={cocoDesc} image={Coconut}/>
             <Accommodation title="Coral" desc={coralDesc} image={Coral}/>
+            <div style={{height: "150px"}} />
         </div>
     )
 }

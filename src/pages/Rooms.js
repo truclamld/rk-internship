@@ -21,6 +21,7 @@ function Rooms() {
             <Accommodation title="Superior" desc={superiorDesc} image={Superior} />
             <Accommodation title="Deluxe" desc={deluxeDesc} image={Deluxe} />
             <Accommodation title="Premium" desc={premiumDesc} image={Premium} />
+            <div style={{height: "150px"}} />
         </div>
     )
 }
